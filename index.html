@@ -31,6 +31,8 @@
               </div>
               <div>
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXmIYlnmrwzJ5H-BgpEOzCzUXRTa0kSuRML9udOPpWwCzy8w/viewform?usp=sf_link">Kontakt</a>
+              &vert;
+              <a class="dark-toggle" href="#">Darkmode aktivieren</a>
               </div>
           </div>
           
@@ -42,14 +44,9 @@
           });
 
           
-          $(".nav-sp-link").click(function(){
-          $("#navigation-smartphone").toggle( 'slow', function(){
-          });
-          });
-          
-          $(".navbar-sp-link").click(function(){
-          $("#navigation-smartphone").toggle( 'slow', function(){
-          });
+          $(".dark-toggle").click(function(){
+					$('body').css('background', '#000000');
+          $('button').css('background', '#000000');
           });
           </script>
 </body>
