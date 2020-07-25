@@ -67,6 +67,7 @@ body{
      border-radius: 40px;
      color: #1e92e7;
      display: none;
+     max-width: 500px;
      }
      
 
