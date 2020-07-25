@@ -58,6 +58,17 @@ body{
      color: #1e92e7;
      }
      
+.socialmedia-info{
+     width: 90%;
+     height: auto;
+     background: transparent;
+     margin: auto;
+     border: 5px solid;
+     border-radius: 40px;
+     color: #1e92e7;
+     display: none;
+     }
+     
 
 a {
       text-decoration: none;
