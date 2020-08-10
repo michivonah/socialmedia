@@ -25,7 +25,7 @@ body{
      border: 10px solid;
      border-radius: 50%;
      border-top-color: transparent;
-     animation: loading 1s linear;
+     animation: loading 1s infinite;
      }
      
      
