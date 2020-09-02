@@ -74,7 +74,10 @@
               <div>
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXmIYlnmrwzJ5H-BgpEOzCzUXRTa0kSuRML9udOPpWwCzy8w/viewform?usp=sf_link">Kontakt <i class="fas fa-envelope"></i></a>
               &vert;
-              <a class="dark-toggle" href="#">Darkmode aktivieren <i class="fas fa-moon"></i></a>
+              <a class="dark-toggle" href="#disclaimer">Darkmode aktivieren <i class="fas fa-moon"></i></a>
+              <p id="disclaimer" style="display: none;">
+              Diese Funktion verwendet Cookies um abzuspeichern dass, Sie den Darkmode aktiviert haben. Ansonsten verwendet diese Seite keine weiteren Cookies.
+              </p>
               </div>
           </div>
           
@@ -83,12 +86,23 @@
           <script>
           $(window).on("load", function(){
           $("#loading-screen").fadeOut(1000);
+          		const read_themecolor = document.cookie
+  						.split('; ')
+  						.find(row => row.startsWith('theme'))
+  						.split('=')[1];
+              $('body').css('background', read_themecolor);
+          		$('button').css('background', read_themecolor);
           });
 
           
           $(".dark-toggle").click(function(){
-					$('body').css('background', '#000000');
-          $('button').css('background', '#000000');
+          var themecolor = '#000000';
+					$('body').css('background', themecolor);
+          $('button').css('background', themecolor);
+          document.cookie = "theme=" + '#000000';
+          $("#disclaimer").toggle( 'fast', function(){
+          });
+          $("html, body").animate({ scrollTop: $(document).height() }, 1000);
           });
           
           $("#instagram-btn").click(function(){
