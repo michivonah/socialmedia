@@ -30,9 +30,9 @@
               <div id="socialmedia">
                 <a href="#me" id="me-btn"><button>&Uuml;ber mich</button></a>
                   <div class="socialmedia-info" id="me">
-                  <p>15 Jahre jung</p>
+                  <p>15 Jahre jung <i class="fas fa-user"></i></p>
                   <p>Schweiz</p>
-                  <p>Computer</p>
+                  <p>Computer <i class="fas fa-laptop-code"></i></p>
                   <p>Nintendo, Tesla und Twint Fan</p>
                   </div>
                 <a href="#instagram" id="instagram-btn"><button>Instagram</button></a>
@@ -45,23 +45,23 @@
                 <a href="#twitter" id="twitter-btn"><button>Twitter</button></a>
                   <div class="socialmedia-info" id="twitter">
                   <p>Nutzername: michivonah</p>
-                  <p>20+ Tweets</p>
+                  <p>35+ Tweets</p>
                   <p>3+ Follower</p>
                   <a href="https://twitter.com/michivonah"><button><i class="fab fa-twitter"></i> Profil besuchen</button></a>
                   </div>
                 <a href="#snapchat" id="snapchat-btn"><button>Snapchat</button></a>
                   <div class="socialmedia-info" id="snapchat">
                   <p>Nutzername: fantasy_michi</p>
-                  <p>Snapscore: 39&prime;000+</p>
+                  <p>Snapscore: 42&prime;000+</p>
                   <img src="snapchat.svg">
                   </div>
                 <a href="https://open.spotify.com/user/hmxfwh1wkyqtbjnxkbtigu85a?si=cyIRxbO0Stiq0HU4aJVobQ"><button>Spotify</button></a>
                 <a href="#github" id="github-btn"><button>Github</button></a>
                   <div class="socialmedia-info" id="github">
                   <p>Nutzername: michivonah</p>
-                  <p>130+ Commits</p>
+                  <p>210+ Commits</p>
                   <p>Programmiersprachen: HTML, CSS</p>
-                  <p>Account erstellt vor mehr als einem Monat</p>
+                  <p>Account erstellt vor mehr als zwei Monaten</p>
                   <a href="https://github.com/michivonah"><button><i class="fab fa-github"></i> Profil besuchen</button></a>
                   </div>
                   
@@ -84,6 +84,7 @@
           
           
           <script>
+          //loading
           $(window).on("load", function(){
           $("#loading-screen").fadeOut(1000);
           		const read_themecolor = document.cookie
@@ -92,9 +93,10 @@
   						.split('=')[1];
               $('body').css('background', read_themecolor);
           		$('button').css('background', read_themecolor);
+              $('#loading-screen').css('background', read_themecolor);
           });
 
-          
+          //toggle darkmode
           $(".dark-toggle").click(function(){
           var themecolor = '#000000';
 					$('body').css('background', themecolor);
@@ -105,6 +107,7 @@
           $("html, body").animate({ scrollTop: $(document).height() }, 1000);
           });
           
+          //toggle Btns
           $("#instagram-btn").click(function(){
           $("#instagram").toggle( 'slow', function(){
           });
