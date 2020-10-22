@@ -16,6 +16,7 @@
          <link rel="manifest" href="manifest.json">
          <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+         <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 </head>
 <body>
           <div id="loading-screen">
@@ -46,14 +47,14 @@
                 <a href="#twitter" id="twitter-btn"><button>Twitter</button></a>
                   <div class="socialmedia-info" id="twitter">
                   <p>Nutzername: michivonah</p>
-                  <p>40+ Tweets</p>
+                  <p>25+ Tweets</p>
                   <p>3+ Follower</p>
                   <a href="https://twitter.com/michivonah"><button><i class="fab fa-twitter"></i> Profil besuchen</button></a>
                   </div>
                 <a href="#snapchat" id="snapchat-btn"><button>Snapchat</button></a>
                   <div class="socialmedia-info" id="snapchat">
                   <p>Nutzername: fantasy_michi</p>
-                  <p>Snapscore: 45&prime;000+</p>
+                  <p>Snapscore: 50&prime;000+</p>
                   <img src="snapchat.svg">
                   </div>
                 <a href="#spotify" id="spotify-btn"><button>Spotify</button></a>
@@ -65,9 +66,9 @@
                 <a href="#github" id="github-btn"><button>Github</button></a>
                   <div class="socialmedia-info" id="github">
                   <p>Nutzername: michivonah</p>
-                  <p>240+ Commits</p>
+                  <p>350+ Commits</p>
                   <p>Programmiersprachen: HTML, CSS</p>
-                  <p>Account erstellt vor mehr als zwei Monaten</p>
+                  <p>Account erstellt vor mehr als drei Monaten</p>
                   <a href="https://github.com/michivonah"><button><i class="fab fa-github"></i> Profil besuchen</button></a>
                   </div>
                   
@@ -93,13 +94,9 @@
           //loading
           $(window).on("load", function(){
           $("#loading-screen").fadeOut(1000);
-          		const read_themecolor = document.cookie
-  						.split('; ')
-  						.find(row => row.startsWith('theme'))
-  						.split('=')[1];
-              $('body').css('background', read_themecolor);
-          		$('button').css('background', read_themecolor);
-              $('#loading-screen').css('background', read_themecolor);
+              $('body').css('background', Cookies.get('theme'));
+          		$('button').css('background', Cookies.get('theme'));
+              $('#loading-screen').css('background', Cookies.get('theme'));
           });
 
           //toggle darkmode
@@ -107,7 +104,7 @@
           var themecolor = '#000000';
 					$('body').css('background', themecolor);
           $('button').css('background', themecolor);
-          document.cookie = "theme=" + '#000000';
+          Cookies.set('theme', themecolor, { expires: 86400 })
           $("#disclaimer").toggle( 'fast', function(){
           });
           $("html, body").animate({ scrollTop: $(document).height() }, 1000);
