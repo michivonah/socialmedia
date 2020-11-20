@@ -25,7 +25,7 @@
 
           <div id="content">
               <div id="name">
-                <img src="michi.jpg">
+                <img src="michi.jpg" id="profilepicture">
                 <p>Michi von Ah</p>
               </div>
               <div id="socialmedia">
@@ -38,16 +38,17 @@
                   </div>
                 <a href="#instagram" id="instagram-btn"><button>Instagram</button></a>
                   <div class="socialmedia-info" id="instagram">
-                  <p>Nutzername: michivonah</p>
+                  <p id="instagram-username">Nutzername: michivonah</p>
                   <p>6 Beitr&auml;ge</p>
-                  <p>85+ Follower</p>
+                  <p id="instagram-follower">85+ Follower</p>
+                  <p id="instagram-bio" style="display:none;">Biografie</p>
                   <a href="https://www.instagram.com/michivonah/"><button><i class="fab fa-instagram"></i> Profil besuchen</button></a>
                   </div>
                 <a href="#twitter" id="twitter-btn"><button>Twitter</button></a>
                   <div class="socialmedia-info" id="twitter">
                   <p>Nutzername: michivonah</p>
-                  <p>25+ Tweets</p>
-                  <p>3+ Follower</p>
+                  <p>30+ Tweets</p>
+                  <p id="twitter-follower">3+ Follower</p>
                   <a href="https://twitter.com/michivonah"><button><i class="fab fa-twitter"></i> Profil besuchen</button></a>
                   </div>
                 <a href="#snapchat" id="snapchat-btn"><button>Snapchat</button></a>
@@ -96,6 +97,17 @@
               $('body').css('background', Cookies.get('theme'));
           		$('button').css('background', Cookies.get('theme'));
               $('#loading-screen').css('background', Cookies.get('theme'));
+              //$.getJSON('https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=michivonah', function(data) {
+              //  $('#twitter-follower').html(data.followers_count + " Follower");
+              //  alert("hi");
+              // //data.followers_count
+							//});
+              $.getJSON('https://www.instagram.com/michivonah/?__a=1', function(data) {
+                $('#instagram-follower').html(data.graphql.user.edge_followed_by.count + " Follower");
+                $('#instagram-username').html("Nutzername: " + data.graphql.user.username);
+                $('#instagram-bio').html("Biografie: " + data.graphql.user.biography);
+                $("#profilepicture").attr("src",data.graphql.user.profile_pic_url_hd);
+							});
           });
 
           //toggle darkmode
@@ -108,6 +120,8 @@
           });
           $("html, body").animate({ scrollTop: $(document).height() }, 1000);
           });
+          
+          //twitter follower https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=michivonah
           
           //toggle Btns
           $("#instagram-btn").click(function(){
