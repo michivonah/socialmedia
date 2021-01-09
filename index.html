@@ -40,35 +40,35 @@
                   <div class="socialmedia-info" id="instagram">
                   <p id="instagram-username">Nutzername: michivonah</p>
                   <p>6 Beitr&auml;ge</p>
-                  <p id="instagram-follower">85+ Follower</p>
+                  <p id="instagram-follower">90+ Follower</p>
                   <p id="instagram-bio" style="display:none;">Biografie</p>
                   <a href="https://www.instagram.com/michivonah/"><button><i class="fab fa-instagram"></i> Profil besuchen</button></a>
                   </div>
                 <a href="#twitter" id="twitter-btn"><button>Twitter</button></a>
                   <div class="socialmedia-info" id="twitter">
                   <p>Nutzername: michivonah</p>
-                  <p>30+ Tweets</p>
-                  <p id="twitter-follower">3+ Follower</p>
+                  <p>40+ Tweets</p>
+                  <p id="twitter-follower">5+ Follower</p>
                   <a href="https://twitter.com/michivonah"><button><i class="fab fa-twitter"></i> Profil besuchen</button></a>
                   </div>
                 <a href="#snapchat" id="snapchat-btn"><button>Snapchat</button></a>
                   <div class="socialmedia-info" id="snapchat">
                   <p>Nutzername: fantasy_michi</p>
-                  <p>Snapscore: 54&prime;000+</p>
+                  <p>Snapscore: 68&prime;000+</p>
                   <img src="snapchat.svg">
                   </div>
                 <a href="#spotify" id="spotify-btn"><button>Spotify</button></a>
                   <div class="socialmedia-info" id="spotify">
-                  <p>6 &ouml;ffentliche Playlists</p>
+                  <p>4 &ouml;ffentliche Playlists</p>
                   <p>einige davon: Mixed Mood 2020, YTer Songs oder SwissGerman Songs</p>
                   <a href="https://open.spotify.com/user/hmxfwh1wkyqtbjnxkbtigu85a?si=cyIRxbO0Stiq0HU4aJVobQ"><button><i class="fab fa-spotify"></i> Spotify &ouml;ffnen</button></a>
                   </div>
                 <a href="#github" id="github-btn"><button>Github</button></a>
                   <div class="socialmedia-info" id="github">
                   <p>Nutzername: michivonah</p>
-                  <p>350+ Commits</p>
+                  <p>450+ Commits</p>
                   <p>Programmiersprachen: HTML, CSS, JavaScript</p>
-                  <p>Account erstellt vor mehr als vier Monaten</p>
+                  <p>Account erstellt vor mehr als einem halben Jahr</p>
                   <a href="https://github.com/michivonah"><button><i class="fab fa-github"></i> Profil besuchen</button></a>
                   </div>
                   
@@ -97,11 +97,11 @@
               $('body').css('background', Cookies.get('theme'));
           		$('button').css('background', Cookies.get('theme'));
               $('#loading-screen').css('background', Cookies.get('theme'));
-              //$.getJSON('https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=michivonah', function(data) {
-              //  $('#twitter-follower').html(data.followers_count + " Follower");
-              //  alert("hi");
-              // //data.followers_count
-							//});
+              /*$.getJSON('https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=michivonah', function(data) {
+                $('#twitter-follower').html(data.formatted_followers_count + " Follower");
+                //alert("hi");
+               	data.followers_count
+							});*/
               $.getJSON('https://www.instagram.com/michivonah/?__a=1', function(data) {
                 $('#instagram-follower').html(data.graphql.user.edge_followed_by.count + " Follower");
                 $('#instagram-username').html("Nutzername: " + data.graphql.user.username);
@@ -120,9 +120,7 @@
           });
           $("html, body").animate({ scrollTop: $(document).height() }, 1000);
           });
-          
-          //twitter follower https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=michivonah
-          
+                    
           //toggle Btns
           $("#instagram-btn").click(function(){
           $("#instagram").toggle( 'slow', function(){
