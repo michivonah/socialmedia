@@ -16,7 +16,6 @@
          <link rel="manifest" href="manifest.json">
          <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
-         <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 </head>
 <body>
           <div id="loading-screen">
@@ -29,50 +28,56 @@
                 <p>Michi von Ah</p>
               </div>
               <div id="socialmedia">
-                <a href="#me" id="me-btn"><button>&Uuml;ber mich</button></a>
+                  <button onclick="toggleInfo('me')">&Uuml;ber mich</button>
                   <div class="socialmedia-info" id="me">
                   <p>15 Jahre jung <i class="fas fa-user"></i></p>
-                  <p>Schweiz</p>
+                  <p>Schweiz 🇨🇭</p>
                   <p>Computer <i class="fas fa-laptop-code"></i></p>
-                  <p>Nintendo, Tesla und Twint Fan</p>
+                  <p>Tesla Fan</p>
                   </div>
-                <a href="#instagram" id="instagram-btn"><button>Instagram</button></a>
+                  
+                  <button onclick="toggleInfo('instagram')">Instagram</button>
                   <div class="socialmedia-info" id="instagram">
                   <p id="instagram-username">Nutzername: michivonah</p>
-                  <p>6 Beitr&auml;ge</p>
-                  <p id="instagram-follower">90+ Follower</p>
-                  <p id="instagram-bio" style="display:none;">Biografie</p>
+                  <p>7 Beitr&auml;ge</p>
+                  <p id="instagram-follower">100+ Follower</p>
+                  <p id="instagram-bio" style="display:none;">Biografie:</p>
                   <a href="https://www.instagram.com/michivonah/"><button><i class="fab fa-instagram"></i> Profil besuchen</button></a>
                   </div>
-                <a href="#twitter" id="twitter-btn"><button>Twitter</button></a>
+                  
+                  <button onclick="toggleInfo('twitter')">Twitter</button>
                   <div class="socialmedia-info" id="twitter">
                   <p>Nutzername: michivonah</p>
-                  <p>40+ Tweets</p>
+                  <p>50+ Tweets</p>
                   <p id="twitter-follower">5+ Follower</p>
                   <a href="https://twitter.com/michivonah"><button><i class="fab fa-twitter"></i> Profil besuchen</button></a>
                   </div>
-                <a href="#snapchat" id="snapchat-btn"><button>Snapchat</button></a>
+                  
+                  <button onclick="toggleInfo('snapchat')">Snapchat</button>
                   <div class="socialmedia-info" id="snapchat">
                   <p>Nutzername: fantasy_michi</p>
-                  <p>Snapscore: 68&prime;000+</p>
+                  <p>Snapscore: 75&prime;000+</p>
+                  <p>eigene Geofilter: 1</p>
                   <img src="snapchat.svg">
                   </div>
-                <a href="#spotify" id="spotify-btn"><button>Spotify</button></a>
+                  
+                  <button onclick="toggleInfo('spotify')">Spotify</button>
                   <div class="socialmedia-info" id="spotify">
-                  <p>4 &ouml;ffentliche Playlists</p>
-                  <p>einige davon: Mixed Mood 2020, YTer Songs oder SwissGerman Songs</p>
+                  <p>4+ &ouml;ffentliche Playlists</p>
+                  <p>einige davon: Mixed Mood 2020, Motivation 2021, YTer Songs oder SwissGerman Songs</p>
                   <a href="https://open.spotify.com/user/hmxfwh1wkyqtbjnxkbtigu85a?si=cyIRxbO0Stiq0HU4aJVobQ"><button><i class="fab fa-spotify"></i> Spotify &ouml;ffnen</button></a>
                   </div>
-                <a href="#github" id="github-btn"><button>Github</button></a>
+                  
+                  <button onclick="toggleInfo('github')">Github</button>
                   <div class="socialmedia-info" id="github">
                   <p>Nutzername: michivonah</p>
-                  <p>450+ Commits</p>
+                  <p>500+ Commits</p>
                   <p>Programmiersprachen: HTML, CSS, JavaScript</p>
                   <p>Account erstellt vor mehr als einem halben Jahr</p>
                   <a href="https://github.com/michivonah"><button><i class="fab fa-github"></i> Profil besuchen</button></a>
                   </div>
                   
-                  <a href="#website" id="website-btn" style="display: none;"><button>Website</button></a>
+                  <button onclick="toggleInfo('website')" style="display:none;">Website</button>
                   <div class="socialmedia-info" id="website">
                   <p>Website noch nicht verf&uuml;gbar</p>
                   <a href="#"><button><i class="fas fa-globe"></i> Website besuchen</button></a>
@@ -80,8 +85,7 @@
               </div>
               <div>
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXmIYlnmrwzJ5H-BgpEOzCzUXRTa0kSuRML9udOPpWwCzy8w/viewform?usp=sf_link">Kontakt <i class="fas fa-envelope"></i></a>
-              &vert;
-              <a class="dark-toggle" href="#disclaimer">Darkmode aktivieren <i class="fas fa-moon"></i></a>
+              <a class="dark-toggle" href="#disclaimer" style="display:none;">Darkmode aktivieren <i class="fas fa-moon"></i></a>
               <p id="disclaimer" style="display: none;">
               Diese Funktion verwendet Cookies um abzuspeichern dass, Sie den Darkmode aktiviert haben. Ansonsten verwendet diese Seite keine weiteren Cookies.
               </p>
@@ -94,68 +98,21 @@
           //loading
           $(window).on("load", function(){
           $("#loading-screen").fadeOut(1000);
-              $('body').css('background', Cookies.get('theme'));
-          		$('button').css('background', Cookies.get('theme'));
-              $('#loading-screen').css('background', Cookies.get('theme'));
-              /*$.getJSON('https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=michivonah', function(data) {
-                $('#twitter-follower').html(data.formatted_followers_count + " Follower");
-                //alert("hi");
-               	data.followers_count
-							});*/
               $.getJSON('https://www.instagram.com/michivonah/?__a=1', function(data) {
                 $('#instagram-follower').html(data.graphql.user.edge_followed_by.count + " Follower");
                 $('#instagram-username').html("Nutzername: " + data.graphql.user.username);
                 $('#instagram-bio').html("Biografie: " + data.graphql.user.biography);
                 $("#profilepicture").attr("src",data.graphql.user.profile_pic_url_hd);
+                console.log('Got data from instagram.');
 							});
           });
-
-          //toggle darkmode
-          $(".dark-toggle").click(function(){
-          var themecolor = '#000000';
-					$('body').css('background', themecolor);
-          $('button').css('background', themecolor);
-          Cookies.set('theme', themecolor, { expires: 86400 })
-          $("#disclaimer").toggle( 'fast', function(){
-          });
-          $("html, body").animate({ scrollTop: $(document).height() }, 1000);
-          });
                     
-          //toggle Btns
-          $("#instagram-btn").click(function(){
-          $("#instagram").toggle( 'slow', function(){
-          });
-          });
-          
-          $("#twitter-btn").click(function(){
-          $("#twitter").toggle( 'slow', function(){
-          });
-          });
-          
-          $("#snapchat-btn").click(function(){
-          $("#snapchat").toggle( 'slow', function(){
-          });
-          });
-          
-          $("#github-btn").click(function(){
-          $("#github").toggle( 'slow', function(){
-          });
-          });
-          
-          $("#website-btn").click(function(){
-          $("#website").toggle( 'slow', function(){
-          });
-          });
-          
-          $("#me-btn").click(function(){
-          $("#me").toggle( 'slow', function(){
-          });
-          });
-          
-          $("#spotify-btn").click(function(){
-          $("#spotify").toggle( 'slow', function(){
-          });
-          });
+          //toggle Info Fields
+          function toggleInfo(infoName){
+          	var infoName = '#' + infoName;
+            $(infoName).toggle('fast', function(){
+          	});
+          }
           </script>
 </body>
 </html>
