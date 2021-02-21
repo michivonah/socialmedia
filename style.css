@@ -9,6 +9,7 @@ body{
      --button-hover: #e0d2c7;
      --background: #f3f3f3;
      --theme: #3498db;
+     user-select: none;
      }
 
 
