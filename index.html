@@ -98,6 +98,12 @@
           //loading
           $(window).on("load", function(){
           $("#loading-screen").fadeOut(1000);
+          if(window.matchMedia('(prefers-color-scheme: dark)').matches || localStorage.getItem('darkmode') == "true"){
+            document.body.style.setProperty('--button', '#181818');
+            document.body.style.setProperty('--button-hover', '#202020');
+            document.body.style.setProperty('--background', '#000');
+            document.body.style.setProperty('--theme', '#1abc9c');
+        	}
               $.getJSON('https://www.instagram.com/michivonah/?__a=1', function(data) {
                 $('#instagram-follower').html(data.graphql.user.edge_followed_by.count + " Follower");
                 $('#instagram-username').html("Nutzername: " + data.graphql.user.username);
