@@ -1,17 +1,21 @@
 body{
      margin: 0;
      padding: 0;
-     color: #1e92e7;
-     background: #f3f3f3;
+     color: var(--theme);
+     background: var(--background);
      text-align: center;
      font-family: sora, sans-serif;
+     --button: #f7f7f7;
+     --button-hover: #e0d2c7;
+     --background: #f3f3f3;
+     --theme: #3498db;
      }
 
 
 #loading-screen{
      width: 100%;
      height: 100vh;
-     background: #f3f3f3;
+     background: var(--background);
      position: fixed;
      align-items: center;
      justify-content: center;
@@ -21,7 +25,7 @@ body{
 #loading{
      width: 50px;
      height: 50px;
-     color: #1e92e7;
+     color: var(--theme);
      border: 10px solid;
      border-radius: 50%;
      border-top-color: transparent;
@@ -55,17 +59,18 @@ body{
      height: 200px;
      border-radius: 50%;
      border: 5px solid;
-     color: #1e92e7;
+     color: var(--theme);
      }
      
 .socialmedia-info{
      width: 90%;
      height: auto;
-     background: transparent;
+     background: var(--button);
      margin: auto;
+     padding: 5px;
      border: 5px solid;
      border-radius: 40px;
-     color: #1e92e7;
+     color: var(--theme);
      display: none;
      max-width: 500px;
      }
@@ -78,16 +83,17 @@ body{
 
 a {
       text-decoration: none;
-      color: #1e92e7;
+      color: var(--theme);
      }
      
 a:hover {
-      color: #1e92e7;
+      color: var(--theme);
+      text-decoration: underline;
      }
 
 button {
-      color: #1e92e7;
-      background: #f7f7f7;
+      color: var(--theme);
+      background: var(--button);
       text-decoration: none;
       border: 5px solid;
       border-radius: 40px;
@@ -104,10 +110,17 @@ button {
      }
      
 button:hover {
-      background: #e0d2c7;
+      background: var(--button-hover);
      }
      
         
 @keyframes loading{
      to{ transform: rotate(720deg); }
+     }
+     
+     @media (prefers-color-sheme: dark){
+       --button: #181818;
+       --button-hover: #202020;
+       --background: #000;
+       --theme: #1abc9c;
      }
