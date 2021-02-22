@@ -84,7 +84,7 @@
                   </div>
               </div>
               <div>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXmIYlnmrwzJ5H-BgpEOzCzUXRTa0kSuRML9udOPpWwCzy8w/viewform?usp=sf_link">Kontakt <i class="fas fa-envelope"></i></a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXmIYlnmrwzJ5H-BgpEOzCzUXRTa0kSuRML9udOPpWwCzy8w/viewform">Kontakt</a>
               <a class="dark-toggle" href="#disclaimer" style="display:none;">Darkmode aktivieren <i class="fas fa-moon"></i></a>
               <p id="disclaimer" style="display: none;">
               Diese Funktion verwendet Cookies um abzuspeichern dass, Sie den Darkmode aktiviert haben. Ansonsten verwendet diese Seite keine weiteren Cookies.
@@ -97,14 +97,29 @@
           <script>
           //loading
           $(window).on("load", function(){
-          $("#loading-screen").fadeOut(1000);
-          if(window.matchMedia('(prefers-color-scheme: dark)').matches || localStorage.getItem('darkmode') == "true"){
-            document.body.style.setProperty('--button', '#181818');
-            document.body.style.setProperty('--button-hover', '#202020');
-            document.body.style.setProperty('--background', '#000');
-            document.body.style.setProperty('--theme', '#1abc9c');
-        	}
-              $.getJSON('https://www.instagram.com/michivonah/?__a=1', function(data) {
+            $("#loading-screen").fadeOut(1000);
+            if(window.matchMedia('(prefers-color-scheme: dark)').matches || localStorage.getItem('darkmode') == "true"){
+              document.body.style.setProperty('--button', '#181818');
+              document.body.style.setProperty('--button-hover', '#202020');
+              document.body.style.setProperty('--background', '#000');
+              var randomNum = Math.round(Math.random() * (5 - 1)) + 1;
+              if(randomNum == "1"){
+              	document.body.style.setProperty('--theme', '#1abc9c');
+              }
+              else if(randomNum == "2"){
+              	document.body.style.setProperty('--theme', '#e67e22');
+              }
+              else if(randomNum == "3"){
+              	document.body.style.setProperty('--theme', '#9b59b6');
+              }
+              else if(randomNum == "4"){
+              	document.body.style.setProperty('--theme', '#c0392b');
+              }
+              else if(randomNum == "5"){
+              	document.body.style.setProperty('--theme', '#34495e');
+              }
+            }
+            $.getJSON('https://www.instagram.com/michivonah/?__a=1', function(data) {
                 $('#instagram-follower').html(data.graphql.user.edge_followed_by.count + " Follower");
                 $('#instagram-username').html("Nutzername: " + data.graphql.user.username);
                 $('#instagram-bio').html("Biografie: " + data.graphql.user.biography);
