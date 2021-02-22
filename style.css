@@ -108,6 +108,7 @@ button {
       margin-bottom: 10px;
       margin-left: 20px;
       margin-right: 20px;
+      outline: none;
      }
      
 button:hover {
@@ -119,13 +120,6 @@ button:hover {
      to{ transform: rotate(720deg); }
      }
      
-     
-     @media (prefers-color-scheme: light){
-       --button: #f7f7f7;
-       --button-hover: #e0d2c7;
-       --background: #f3f3f3;
-       --theme: #3498db;
-     }
      
      @media (prefers-color-scheme: dark){
        --button: #181818;
