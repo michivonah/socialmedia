@@ -21,6 +21,7 @@
           <div id="loading-screen">
               <div id="loading"></div>
           </div>
+          
 
           <div id="content">
               <div id="name">
@@ -48,7 +49,7 @@
                   <button onclick="toggleInfo('twitter')">Twitter</button>
                   <div class="socialmedia-info" id="twitter">
                   <p>Nutzername: michivonah</p>
-                  <p>50+ Tweets</p>
+                  <p>90+ Tweets</p>
                   <p id="twitter-follower">5+ Follower</p>
                   <a href="https://twitter.com/michivonah"><button><i class="fab fa-twitter"></i> Profil besuchen</button></a>
                   </div>
@@ -56,15 +57,15 @@
                   <button onclick="toggleInfo('snapchat')">Snapchat</button>
                   <div class="socialmedia-info" id="snapchat">
                   <p>Nutzername: fantasy_michi</p>
-                  <p>Snapscore: 75&prime;000+</p>
+                  <p>Snapscore: 81&prime;200+</p>
                   <p>eigene Geofilter: 1</p>
                   <img src="snapchat.svg">
                   </div>
                   
                   <button onclick="toggleInfo('spotify')">Spotify</button>
                   <div class="socialmedia-info" id="spotify">
-                  <p>4+ &ouml;ffentliche Playlists</p>
-                  <p>einige davon: Mixed Mood 2020, Motivation 2021, YTer Songs oder SwissGerman Songs</p>
+                  <p>5+ &ouml;ffentliche Playlists</p>
+                  <p>einige davon: Mixed Mood 2020, Motivation 2021 oder SwissGerman Songs</p>
                   <a href="https://open.spotify.com/user/hmxfwh1wkyqtbjnxkbtigu85a?si=cyIRxbO0Stiq0HU4aJVobQ"><button><i class="fab fa-spotify"></i> Spotify &ouml;ffnen</button></a>
                   </div>
                   
@@ -115,16 +116,13 @@
               else if(randomNum == "4"){
               	document.body.style.setProperty('--theme', '#c0392b');
               }
-              else if(randomNum == "5"){
-              	document.body.style.setProperty('--theme', '#34495e');
-              }
             }
             $.getJSON('https://www.instagram.com/michivonah/?__a=1', function(data) {
                 $('#instagram-follower').html(data.graphql.user.edge_followed_by.count + " Follower");
                 $('#instagram-username').html("Nutzername: " + data.graphql.user.username);
                 $('#instagram-bio').html("Biografie: " + data.graphql.user.biography);
                 $("#profilepicture").attr("src",data.graphql.user.profile_pic_url_hd);
-                console.log('Got data from instagram.');
+                console.log('Data loaded from instagram.');
 							});
           });
                     
