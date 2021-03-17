@@ -81,7 +81,7 @@ body{
      height: auto;
      }
      
-
+     
 a {
       text-decoration: none;
       color: var(--theme);
@@ -117,8 +117,25 @@ button:hover {
      
         
 @keyframes loading{
-     to{ transform: rotate(720deg); }
-     }
+  to{
+    transform: rotate(720deg);
+    }
+  }
+  
+  @keyframes party{
+  25%{
+    color: #1abc9c;
+    }
+  50%{
+    color: #e67e22;
+    }
+  75%{
+    color: #9b59b6;
+    }
+  100%{
+    color: #c0392b;
+    }
+  }
      
      
      @media (prefers-color-scheme: dark){
